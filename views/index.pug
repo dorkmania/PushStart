@@ -1,0 +1,74 @@
+//- Slightly lazy use of static values on the front-end
+//- In production, values would be loaded dynamically from their respective DB collections
+
+doctype html
+html
+	head
+		title PushStart
+		script(src='/material.min.js')
+		link(rel='stylesheet' href='/material.min.css')
+		link(rel='stylesheet' href='/icons.css')
+		script(src='/jquery-3.3.1.min.js')
+		script(src='/bootstrap.min.js')
+		link(rel='stylesheet' href = '/bootstrap.min.css')
+		link(rel='stylesheet' type='text/css' media='all' href='style.css')
+		link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Lato:400,300,500,600')
+	body
+		.parent
+			.row.m-4
+				h1 PushStart Request Form
+			.main
+				form#transactionForm(name='form1' method='post' action='/' autocomplete='off')
+					.p-4
+						.form-group.row.align-items-center
+							label.col-form-label.col-md-3 Service Provider Type
+							.col
+								.form-check.form-check-inline
+									input.form-check-input(type='radio' name='options' id='firm' value='firm' checked='checked')
+									label.form-check-label(for='firm') Firm / Agency
+							.col
+								.form-check.form-check-inline
+									input.form-check-input(type='radio' name='options' id='free' value='free' disabled=true)
+									label.form-check-label(for='free') Freelancer / Consultant
+						.form-group.row#mfSelector
+							label.col-md-3.col-form-label(for='industry') Industry
+							.col-md-9
+								select.form-control#industry(name='industry')
+									option(value='Digital Marketing') Digital Marketing
+									option(value='Development') Software Development
+						.form-group.row
+							label.col-md-3.col-form-label(for='budget') Approximate Budget (₹) #[span(style='color:red') *]
+							.col-md-9
+								input.form-control#budget(type='text' pattern='[0-9]*(\.[0-9]+)?' name='budget' required='true')
+						.form-group.row
+							label.col-form-label.col-md-3(for='city') City #[span(style='color:red') *]
+							.col-md-9
+								select.form-control#industry(name='city')
+									option(value='Delhi') Delhi
+									option(value='Gurgaon') Gurgaon
+									option(value='Mumbai') Mumbai
+						.form-group.row
+							label.col-form-label.col-md-3(for='exp') Expertise Applicable #[span(style='color:red') *]
+							.col-md-9
+								select.form-control#exp(name='exp')
+									option(value='0') Regular
+									option(value='1') Intermediate
+									option(value='2') Advanced
+						.form-group.row.align-items-center
+							label.col-form-label.col-md-3(for='niches') Relevant Keywords  #[span(style='color:red') * ]
+								i.material-icons-outlined.icon-dark.hover(id='niche-tip') info
+								.mdl-tooltip(for='niche-tip') Enter comma or space#[br]seperated values
+							.col-md-9
+								input.form-control#asset-name(type='text' name='niches' required='true')
+						.form-group.row
+							label.col-form-label.col-md-3(for='urgency') Urgency / Timeline #[span(style='color:red') *]
+							.col-md-9
+								select.form-control#exp(name='urgency')
+									option(value='0') No Priority
+									option(value='0') Low Priority
+									option(value='1') Low Priority
+									option(value='2') High Priority
+						.form-group.row.justify-content-end.px-3
+							button.col-md-2.btn.btn-primary#submitBtn(type='submit') Save
+			.row.m-4
+				h4 Please note that if you're looking for Mentorship, Advice or References; check out our WhatsApp Groups

@@ -1,0 +1,37 @@
+{
+  "name": "ps-engine",
+  "version": "0.1.0",
+  "description": "PushStart Recommendadtion Engine",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dorkmania",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "mongoose": "^5.11.8",
+    "pug": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dorkmania/PushStart.git"
+  },
+  "keywords": [
+    "Pushtart",
+    "Recommendation",
+    "Weighing Functiom",
+    "ExpressJS",
+    "Pug",
+    "Bootstrap"
+  ],
+  "bugs": {
+    "url": "https://github.com/dorkmania/PushStart/issues"
+  },
+  "homepage": "https://github.com/dorkmania/PushStart#readme"
+}

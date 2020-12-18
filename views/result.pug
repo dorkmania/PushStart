@@ -1,0 +1,33 @@
+//- Slightly lazy use of static values on the front-end
+//- In production, values would be loaded dynamically via an express API end-point
+
+doctype html
+html
+	head
+		title PushStart
+		script(src='/material.min.js')
+		link(rel='stylesheet' href='/material.min.css')
+		link(rel='stylesheet' href='/icons.css')
+		script(src='/jquery-3.3.1.min.js')
+		script(src='/bootstrap.min.js')
+		link(rel='stylesheet' href = '/bootstrap.min.css')
+		link(rel='stylesheet' type='text/css' media='all' href='style.css')
+		link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Lato:400,300,500,600')
+	body
+		.parent
+			.row.m-4
+				h1 Partner Matches
+			.main.pt-1
+				if partners
+					table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-main.alt-table
+						thead
+							tr
+								th.mdl-data-table__cell--non-numeric Partner Name
+								th.mdl-data-table__cell--non-numeric Match Degree
+						tbody
+							each partner in partners
+								tr
+									td.mdl-data-table__cell--non-numeric.pr-0 #{partner.name}
+									td!= (partner.weighted_score / maxScore) * 100 + '%'
+				else
+					h1 No Matches Found!
